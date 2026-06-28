@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Elegant Admin Dashboard | Sikandar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-theme.css">
+</head>
+<body id="admin-body">
+
+    <!-- LOGIN PANEL -->
+    <div id="admin-login-panel" class="admin-login-wrapper">
+        <div class="admin-login-card">
+            <h2 class="admin-login-title">Admin Login</h2>
+            <div id="login-error-msg" style="display: none; background: #fee2e2; color: #991b1b; padding: 12px; border-radius: 4px; margin-bottom: 16px; font-size: 14px; text-align: center;">
+                Invalid credentials.
+            </div>
+            <form id="admin-login-form">
+                <div class="admin-form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" class="admin-input" required placeholder="admin">
+                </div>
+                <div class="admin-form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="admin-input" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="admin-btn" style="width: 100%; margin-top: 10px;">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- DASHBOARD PANEL -->
+    <div id="admin-dashboard" style="display: none;">
+        
+        <aside class="admin-sidebar">
+            <div class="admin-logo-wrapper">
+                <a href="/" class="admin-logo">
+                    <div class="logo-icon">S</div>
+                    <span>SIKANDAR</span>
+                </a>
+            </div>
+
+            <div class="admin-nav-section">MAIN MENU</div>
+            <ul class="admin-nav">
+                <li class="admin-nav-item active" data-tab="tab-overview">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                    Overview
+                </li>
+                <li class="admin-nav-item" data-tab="tab-leads">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Leads (CRM)
+                </li>
+                <li class="admin-nav-item" data-tab="tab-payments">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    Payments
+                </li>
+                <li class="admin-nav-item" data-tab="tab-products">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                    Products
+                </li>
+                <li class="admin-nav-item" data-tab="tab-product-pages">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Product Pages
+                </li>
+            </ul>
+
+            <div class="admin-nav-section" style="margin-top: 16px;">MANAGEMENT</div>
+            <ul class="admin-nav" style="flex: 1;">
+                <li class="admin-nav-item" data-tab="tab-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Website Content
+                </li>
+                <li class="admin-nav-item" data-tab="tab-gallery">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    Gallery
+                </li>
+                <li class="admin-nav-item" data-tab="tab-settings">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    Settings
+                </li>
+            </ul>
+
+            <div class="admin-user-profile" id="admin-logout-btn">
+                <div class="admin-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=3b82f6&color=fff&rounded=true" alt="Admin">
+                </div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Admin User</div>
+                    <div class="admin-user-role">System Administrator</div>
+                </div>
+                <svg class="admin-logout-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <div class="admin-header">
+                <h1 id="page-title">Overview</h1>
+                <div style="font-size: 14px; color: var(--admin-text-light);">Welcome, Admin</div>
+            </div>
+
+            <!-- OVERVIEW TAB -->
+            <div id="tab-overview" class="admin-tab-content">
+                <div class="admin-card stat-grid">
+                    <div class="stat-item">
+                        <div class="value" id="stat-revenue">0.00</div>
+                        <div class="label">Total Revenue (OMR)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value" id="stat-orders">0</div>
+                        <div class="label">Total Orders</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value" id="stat-leads">0</div>
+                        <div class="label">New Leads</div>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3 style="margin-top: 0;">Recent Activity</h3>
+                    <p style="color: var(--admin-text-light);">Recent payments and leads will be displayed here.</p>
+                </div>
+            </div>
+
+            <!-- WEBSITE CONTENT TAB (CMS) -->
+            <div id="tab-content" class="admin-tab-content" style="display: none;">
+                <div class="admin-card">
+                    <h2 style="margin-top: 0; margin-bottom: 20px;">Edit Website Content</h2>
+                    <form id="cms-form">
+                        
+                        <h3 style="border-bottom: 1px solid var(--admin-border); padding-bottom: 10px; margin-top: 0;">Hero Section</h3>
+                        <div class="admin-form-group">
+                            <label>Hero Title</label>
+                            <input type="text" id="cms-hero-title" class="admin-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Hero Subtitle</label>
+                            <input type="text" id="cms-hero-subtitle" class="admin-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Hero Description</label>
+                            <textarea id="cms-hero-desc" class="admin-input"></textarea>
+                        </div>
+
+                        <h3 style="border-bottom: 1px solid var(--admin-border); padding-bottom: 10px; margin-top: 30px;">About Section</h3>
+                        <div class="admin-form-group">
+                            <label>About Title</label>
+                            <input type="text" id="cms-about-title" class="admin-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>About Short Description</label>
+                            <textarea id="cms-about-desc" class="admin-input"></textarea>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>About Full Content</label>
+                            <textarea id="cms-about-content" class="admin-input"></textarea>
+                        </div>
+
+                        <h3 style="border-bottom: 1px solid var(--admin-border); padding-bottom: 10px; margin-top: 30px;">Contact Info</h3>
+                        <div class="admin-form-group">
+                            <label>Contact Email</label>
+                            <input type="text" id="cms-contact-email" class="admin-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Contact Phone</label>
+                            <input type="text" id="cms-contact-phone" class="admin-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Address</label>
+                            <input type="text" id="cms-contact-address" class="admin-input">
+                        </div>
+
+                        <button type="submit" class="admin-btn" style="margin-top: 20px;">Save Content</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- GALLERY TAB -->
+            <div id="tab-gallery" class="admin-tab-content" style="display: none;">
+                <div class="admin-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">Gallery Editor</h2>
+                        <button id="add-gallery-btn" class="admin-btn">Add Image</button>
+                    </div>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table" id="gallery-table">
+                            <thead>
+                                <tr>
+                                    <th>Image Path</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody id="gallery-table-body" style="cursor: pointer;">
+                                <tr><td colspan="3">Loading gallery...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- LEADS TAB -->
+            <div id="tab-leads" class="admin-tab-content" style="display: none;">
+                <div class="admin-card">
+                    <h2 style="margin-top: 0; margin-bottom: 20px;">Lead Management</h2>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Email / Phone</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leads-table-body">
+                                <tr><td colspan="5">Loading leads...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAYMENTS TAB -->
+            <div id="tab-payments" class="admin-tab-content" style="display: none;">
+                <div class="admin-card">
+                    <h2 style="margin-top: 0; margin-bottom: 20px;">Payments History</h2>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Product</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="payments-table-body">
+                                <tr><td colspan="5">Loading payments...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT PAGES TAB -->
+            <div id="tab-product-pages" class="admin-tab-content" style="display: none;">
+                <div class="admin-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">Edit Product Pages</h2>
+                        <button id="save-product-page-btn" class="admin-btn">Save Changes</button>
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label class="admin-label">Select Product to Edit</label>
+                        <select id="product-page-select" class="admin-input" style="width: 250px;">
+                            <option value="oria">Sikandar ORIA</option>
+                            <option value="pos">Sikandar POS</option>
+                            <option value="erp">Sikandar ERP</option>
+                            <option value="checkout">Self Checkout</option>
+                            <option value="crm">Sikandar CRM Suite</option>
+                        </select>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-label">Page JSON Content (Advanced Editor)</label>
+                        <textarea id="product-page-json" class="admin-input" style="height: 500px; font-family: monospace; white-space: pre; line-height: 1.4;"></textarea>
+                        <small style="color: var(--admin-text-light); margin-top: 5px; display: block;">Edit the structured content directly. Ensure it remains valid JSON format.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTS TAB -->
+            <div id="tab-products" class="admin-tab-content" style="display: none;">
+                <div class="admin-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">Product Pricing Plans</h2>
+                        <button id="add-plan-btn" class="admin-btn">Add Product</button>
+                    </div>
+                    
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table" id="products-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price (OMR)</th>
+                                    <th>Type</th>
+                                    <th>Billing</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table-body" style="cursor: pointer;">
+                                <tr><td colspan="4">Loading products...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SETTINGS TAB -->
+            <div id="tab-settings" class="admin-tab-content" style="display: none;">
+                <div class="admin-card">
+                    <h2 style="margin-top: 0; margin-bottom: 20px;">Account Settings</h2>
+                    <form id="password-form">
+                        <div class="admin-form-group">
+                            <label>New Password</label>
+                            <input type="password" id="new-password" class="admin-input" required>
+                        </div>
+                        <button type="submit" class="admin-btn">Update Password</button>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MODAL OVERLAY -->
+    <div id="admin-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="admin-card" style="width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; position: relative;">
+            <button id="close-modal-btn" style="position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--admin-text-light);">&times;</button>
+            <h2 id="modal-title" style="margin-top: 0;">Edit Item</h2>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="no-js ss-preload" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Media &amp; Insights | Sikandar, Muscat Oman</title>
+    <meta name="description"
+        content="Stay updated with our latest news, insights, and breakthrough innovations in the world of technology.">
+    <meta name="author" content="Sikandar Ali Trading">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="style.css?v=2.4">
+</head>
+
+<body id="top">
+
+    <!-- preloader -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <!-- page wrap -->
+    <div class="s-pagewrap">
+
+        <div class="circles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- site header -->
+        <header class="s-header">
+            <div class="header-mobile">
+                <span class="mobile-home-link"><a href="/">SIKANDAR.</a></span>
+                <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
+            </div>
+
+            <div class="row wide main-nav-wrap">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li><a href="/" class="home-link">SIKANDAR.</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/#products">Products</a></li>
+                        <li class="current"><a href="/media">Media</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/customer.html">Customer Portal</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- main content -->
+        <main class="s-content" style="padding-top: 140px; padding-bottom: 80px;">
+
+            <!-- Header section -->
+            <section class="row target-section" style="margin-bottom: 60px;">
+                <div class="column lg-12">
+                    <div class="text-pretitle with-line" style="color: var(--color-1);">~/sikandar/media/news_feed.json
+                    </div>
+                    <h1
+                        style="font-family: var(--font-2); font-size: 56px; margin-top: 10px; margin-bottom: 20px; color: #fff;">
+                        Media &amp; Insights</h1>
+                    <p class="attention-getter"
+                        style="max-width: 800px; line-height: 1.8; color: var(--color-text-light);">
+                        Stay updated with our latest news, insights, and breakthrough innovations in the world of
+                        technology.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Articles Feed Section -->
+            <section class="row target-section" style="margin-bottom: 80px;">
+                <div class="column lg-12">
+                    <div style="display: flex; flex-direction: column; gap: 40px;">
+
+                        <div id="dynamic-media-feed">
+                            <!-- Dynamic articles will be rendered here by JS -->
+                            <div style="color: #64748b; font-family: monospace;">Loading dynamic media feed...</div>
+                        </div>
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', async () => {
+                                try {
+                                    const response = await fetch('/api/content');
+                                    if (!response.ok) throw new Error('Failed to fetch media content');
+                                    const data = await response.json();
+                                    const mediaFeed = data.media;
+                                    const container = document.getElementById('dynamic-media-feed');
+
+                                    if (mediaFeed && mediaFeed.length > 0) {
+                                        container.innerHTML = '';
+                                        mediaFeed.forEach(article => {
+                                            const disabledStyle = article.disabled ? 'opacity: 0.5; pointer-events: none;' : '';
+                                            const featuredBadge = article.isFeatured ? '<span style="background: rgba(255,255,255,0.05); color: var(--color-text-light); font-size: 11px; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Featured</span>' : '';
+
+                                            container.innerHTML += `
+                                                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); border-radius: 12px; padding: 40px; position: relative; margin-bottom: 40px;">
+                                                    <div style="position: absolute; top: 30px; right: 40px; font-family: var(--font-2); font-size: 48px; color: rgba(255,255,255,0.03); font-weight: 700; line-height: 1;">${article.id}</div>
+                                                    <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                                        <span style="background: var(--color-1); color: #000; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">${article.tag}</span>
+                                                        ${featuredBadge}
+                                                    </div>
+                                                    <h3 style="font-family: var(--font-2); font-size: 28px; color: #fff; margin-bottom: 15px; max-width: 80%;">${article.title}</h3>
+                                                    <p style="color: var(--color-text); line-height: 1.7; margin-bottom: 24px; font-size: 16px;">
+                                                        ${article.description}
+                                                    </p>
+                                                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                                                        <div style="color: var(--color-text-light); font-size: 13px;">
+                                                            Publisher: <strong>${article.publisher}</strong>
+                                                        </div>
+                                                        <a href="${article.link}" target="${article.disabled ? '_self' : '_blank'}" class="btn btn--stroke btn--small ${article.disabled ? 'disabled' : ''}" style="margin: 0; padding: 0 20px; height: 38px; line-height: 36px; font-size: 11px; ${disabledStyle}">${article.linkText}</a>
+                                                    </div>
+                                                </div>
+                                            `;
+                                        });
+                                    } else {
+                                        container.innerHTML = '<div style="color: #64748b;">No media articles found.</div>';
+                                    }
+                                } catch (err) {
+                                    console.error('Error loading media:', err);
+                                    document.getElementById('dynamic-media-feed').innerHTML = '<div style="color: #ef4444;">Failed to load media.</div>';
+                                }
+                            });
+                        </script>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Signup terminal block -->
+            <section class="row target-section"
+                style="margin-bottom: 40px; border-top: 1px solid var(--color-border); padding-top: 80px;">
+                <div class="column lg-12">
+                    <div
+                        style="background: #121417; border: 1px solid var(--color-border); border-radius: 12px; padding: 40px; font-family: monospace; max-width: 680px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                        <div style="display: flex; gap: 8px; margin-bottom: 24px;">
+                            <span
+                                style="width: 12px; height: 12px; border-radius: 50%; background: #ffffff; display: inline-block;"></span>
+                            <span
+                                style="width: 12px; height: 12px; border-radius: 50%; background: #b0b0b0; display: inline-block;"></span>
+                            <span
+                                style="width: 12px; height: 12px; border-radius: 50%; background: #505050; display: inline-block;"></span>
+                        </div>
+                        <div style="color: var(--color-1); font-size: 15px; margin-bottom: 12px; font-weight: bold;">$
+                            cat subscribe_newsletter.sh</div>
+                        <div style="color: #6a737d; font-size: 14px; margin-bottom: 24px; line-height: 1.5;">
+                            # Subscribe to our tech feed for the latest updates and insights.<br>
+                            # Enter your email address below to join the waitlist.
+                        </div>
+                        <form id="newsletter-form" style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 0;">
+                            <input type="email" placeholder="user@domain.com" required
+                                style="flex: 1; min-width: 200px; background: #1a1d22; border: 1px solid var(--color-border); border-radius: 6px; padding: 14px 20px; color: #fff; font-family: monospace; font-size: 14px; outline: none; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.4);">
+                            <button type="submit"
+                                style="background: var(--color-1); color: #000; border: none; border-radius: 6px; padding: 0 30px; font-family: monospace; font-size: 14px; font-weight: bold; cursor: pointer; height: 50px; line-height: 50px; transition: all 0.2s;">./subscribe</button>
+                        </form>
+                        <div id="newsletter-success"
+                            style="display: none; color: #27c93f; font-size: 14px; margin-top: 15px;">
+                            ✓ Subscription success! Welcome to Sikandar insights feed.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- footer -->
+        <footer class="s-footer" style="border-top: 1px solid var(--color-border); padding-top: 40px;">
+            <div class="row">
+                <div class="column ss-copyright">
+                    <span>© Copyright Sikandar Ali Trading 2026</span>
+                    <span>Design by <a href="#">Sikandar Ali Trading SPC</a></span>
+                    <span>Muscat, Oman | <a href="/terms.html">Terms</a> | <a href="/privacy.html">Privacy</a> | <a href="/refund.html">Refund Policy</a></span>
+                </div>
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd"
+                            clip-rule="evenodd">
+                            <path
+                                d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Java Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/0.1.1/moveTo.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const input = this.querySelector('input');
+            const success = document.getElementById('newsletter-success');
+            if (input.value) {
+                success.style.display = 'block';
+                input.value = '';
+                setTimeout(() => { success.style.display = 'none'; }, 4000);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

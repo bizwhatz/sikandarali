@@ -1,0 +1,105 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password_hash": "4b53f15a6e44872736e85340b86830f0024c85fbfc42f09a8b383002dee26359dec0e126fe5a71dd815d17b725821e607eabe78c75439b18f1f1315134287fda",
+      "salt": "f3a0f938da78cef8294511cbf0772a96"
+    }
+  ],
+  "leads": [
+    {
+      "id": 1,
+      "name": "Test Name",
+      "email": "test@example.com",
+      "phone": "+96891234567",
+      "company": "Test Company",
+      "status": "New",
+      "notes": "Test CRM Requirements.",
+      "created_at": "2026-06-22T18:40:18.404Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "chg_sim_a0f6182af560b9c3f8df6b4d",
+      "customer_name": "SAMEER S S",
+      "customer_email": "thedesignsshops@gmail.com",
+      "customer_phone": "09895718009",
+      "plan_id": "enterprise",
+      "plan_name": "Enterprise CRM",
+      "amount_omr": 399,
+      "status": "SUCCESS",
+      "created_at": "2026-06-22T07:24:38.153Z"
+    }
+  ],
+  "settings": {
+    "pricing_plans": [
+      {
+        "id": "oria",
+        "name": "Sikandar ORIA",
+        "price": 199,
+        "billing": "month",
+        "description": "Unify voice, chat, and multilingual interactions while turning every conversation into actionable intelligence.",
+        "features": [
+          "Voice & Chat Unification",
+          "Multilingual Support",
+          "Conversational AI Insights",
+          "Real-time Sentiment Analysis",
+          "CRM/ERP Native Connectors"
+        ]
+      },
+      {
+        "id": "pos",
+        "name": "Restaurant POS",
+        "price": 99,
+        "billing": "month",
+        "description": "Comprehensive ERP restaurant point-of-sale system, expanding our offerings in the hospitality sector.",
+        "features": [
+          "Table & Order Management",
+          "KOT (Kitchen Order Ticket) System",
+          "Real-time Sales Dashboards",
+          "Multi-terminal Sync",
+          "Loyalty & Promotions"
+        ]
+      },
+      {
+        "id": "erp",
+        "name": "Sikandar ERP",
+        "price": 299,
+        "billing": "month",
+        "description": "All-in-one ERP Solution, delivering flexibility, control, and scalability for businesses across every industry.",
+        "features": [
+          "Inventory & Warehouse Control",
+          "Financial Accounting & VAT",
+          "Purchase & Sales Orders",
+          "HR & Payroll Management",
+          "Custom Reports & Auditing"
+        ]
+      },
+      {
+        "id": "checkout",
+        "name": "Self Checkout",
+        "price": 149,
+        "billing": "month",
+        "description": "Innovative self-checkout solution designed to address billing issues in retail stores by enabling customers to scan barcodes and pay online.",
+        "features": [
+          "Barcode Scanning",
+          "Instant Web Checkout",
+          "Tap Payments Integration",
+          "Real-time Billing Dashboard",
+          "Queue Reduction Analytics"
+        ]
+      }
+    ]
+  },
+  "customers": [
+    {
+      "id": 1,
+      "name": "Test Buyer",
+      "email": "testbuyer123@example.com",
+      "password_hash": "4df0aaa16c834846807a2631ff86da2fd51497586d9817bbfff97b3403b5ebafd209490237ea2d9a60d7fc901ada3d589c08266b52b53e2bf6681d346eb12412",
+      "salt": "cc08119c17cfc1cd05cdc67c13e8092f",
+      "created_at": "2026-06-22T18:41:48.207Z"
+    }
+  ]
+}

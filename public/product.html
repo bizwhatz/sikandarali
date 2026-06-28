@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="no-js ss-preload" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sikandar Product Details</title>
+    <meta name="description" content="Sikandar product details page.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="style.css?v=2.4">
+    <style>
+        :root {
+            --bg-color: #242424;
+            --text-main: #e0e0e0;
+            --text-muted: #9e9e9e;
+            --accent: #3b82f6;
+            --shadow-out: 8px 8px 16px #1a1a1a, -8px -8px 16px #2e2e2e;
+            --shadow-in: inset 8px 8px 16px #1a1a1a, inset -8px -8px 16px #2e2e2e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        /* Neumorphic Card */
+        .neu-card {
+            background: var(--bg-color);
+            border-radius: 20px;
+            box-shadow: var(--shadow-out);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .neu-card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Neumorphic Inner Box (for tags, tables, etc) */
+        .neu-inner {
+            background: var(--bg-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-in);
+            padding: 20px;
+        }
+
+        /* Neumorphic Button */
+        .neu-btn {
+            display: inline-block;
+            background: var(--bg-color);
+            color: var(--accent);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: var(--shadow-out);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .neu-btn:hover {
+            color: var(--accent);
+            background-color: transparent;
+            box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -2px -2px 5px rgba(255, 255, 255, 0.02);
+            transform: translateY(0);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            font-size: 15px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .neu-tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .neu-tag-cloud span {
+            background: var(--bg-color);
+            box-shadow: var(--shadow-out);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .neu-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .neu-table th,
+        .neu-table td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .neu-table th {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .section-heading {
+            font-family: var(--font-2);
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 22px;
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body id="top">
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <div class="s-pagewrap">
+        <header class="s-header">
+            <div class="header-mobile">
+                <span class="mobile-home-link"><a href="/">SIKANDAR.</a></span>
+                <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
+            </div>
+            <div class="row wide main-nav-wrap">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li><a href="/" class="home-link">SIKANDAR.</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li class="current"><a href="/#products">Products</a></li>
+                        <li><a href="/gallery.html">Gallery</a></li>
+                        <li><a href="/customer.html">Customer Portal</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="s-content" style="padding-top: 140px; padding-bottom: 80px;" id="main-content">
+            <div style="text-align: center; color: white; margin-top: 100px;">
+                <h2 style="color: white;">Loading product details...</h2>
+            </div>
+        </main>
+
+        <footer class="s-footer" style="border-top: 1px solid var(--color-border); padding-top: 40px;">
+            <div class="row">
+                <div class="column ss-copyright">
+                    <span>© Copyright Sikandar Ali Trading 2026</span>
+                    <span>Design by <a href="#">Sikandar Ali Trading SPC</a></span>
+                    <span>Muscat, Oman | <a href="/terms.html">Terms</a> | <a href="/privacy.html">Privacy</a> | <a href="/refund.html">Refund Policy</a></span>
+                </div>
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd"
+                            clip-rule="evenodd">
+                            <path
+                                d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/swiper@6.4.5/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pageId = urlParams.get('id');
+
+            if (!pageId) {
+                document.getElementById('main-content').innerHTML = '<h2 style="text-align:center; color:white; margin-top:100px;">Product not found</h2>';
+                return;
+            }
+
+            try {
+                const [response, plansResponse] = await Promise.all([
+                    fetch(`/api/content/page?id=${pageId}`),
+                    fetch(`/api/plans?t=${Date.now()}`)
+                ]);
+                
+                if (!response.ok) throw new Error('Not found');
+                
+                const data = await response.json();
+                let plans = [];
+                if (plansResponse.ok) {
+                    plans = await plansResponse.json();
+                }
+                
+                renderPage(data, pageId, plans);
+            } catch (err) {
+                document.getElementById('main-content').innerHTML = '<h2 style="text-align:center; color:white; margin-top:100px;">Product not found</h2>';
+            }
+        });
+
+        function renderPage(data, pageId, plans) {
+            let html = '';
+            
+            let crmPlan = plans ? plans.find(p => p.id === 'crm') : null;
+            let crmBase = crmPlan ? parseFloat(crmPlan.price) : 99;
+            let crmYearly = (crmPlan && crmPlan.price_yearly) ? parseFloat(crmPlan.price_yearly) : Math.round(crmBase * 12 * 0.8);
+            let crmLifetime = (crmPlan && crmPlan.price_lifetime) ? parseFloat(crmPlan.price_lifetime) : Math.round(crmBase * 36);
+
+            // Hero Section
+            if (data.hero) {
+                html += `
+                <section class="row target-section" style="margin-bottom: 80px;">
+                    <div class="column lg-12" style="text-align: center;">
+                        <div class="neu-inner" style="padding: 60px 40px; border-radius: 30px;">
+                            <div class="text-pretitle" style="text-transform: uppercase; color: #3b82f6; font-weight: bold;">
+                                ${data.hero.subtitle || ''}
+                            </div>
+                            <h1 class="text-huge-title" style="margin-top: 20px; font-size: 56px; line-height: 1.1; color: white;">
+                                ${data.hero.title || ''}
+                            </h1>
+                            <p class="attention-getter" style="max-width: 900px; margin: 24px auto 0 auto; line-height: 1.6; font-size: 26px; color: var(--text-main);">
+                                ${data.hero.description || ''}
+                            </p>
+                            
+                            ${data.hero.image ? `
+                            <div style="margin: 50px auto; max-width: 900px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-out);">
+                                <img src="${data.hero.image}" alt="Hero Image" style="width: 100%; display: block; border-radius: 20px;">
+                            </div>
+                            ` : ''}
+                            
+                            <p style="max-width: 800px; margin: 24px auto 0 auto; line-height: 1.8; color: var(--text-muted); font-size: 18px;">
+                                ${data.hero.paragraph || ''}
+                            </p>
+                            
+                            <div style="margin-top: 50px;">
+                                <a href="/purchase.html?plan=${pageId}" class="neu-btn">Get a Demo / Buy License</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>`;
+            }
+
+            // Core Products
+            if (data.coreProducts && data.coreProducts.length > 0) {
+                html += `
+                <section class="row target-section" style="margin-bottom: 80px;">
+                    <div class="column lg-12">
+                        <h3 class="section-heading">Core Modules</h3>
+                        <div class="row block-lg-one-half block-tab-whole" style="margin-left: -1.5rem; margin-right: -1.5rem;">
+                            ${data.coreProducts.map(p => {
+                                const moduleName = p.title.replace(/^\d+\.\s*/, '').trim();
+                                const fallbackId = 'crm_' + moduleName.split(' ')[0].toLowerCase();
+                                const specificPlan = plans ? plans.find(plan => plan.name.toLowerCase() === moduleName.toLowerCase() || plan.id === fallbackId) : null;
+                                const planIdToUse = specificPlan ? specificPlan.id : fallbackId;
+                                
+                                let modBase = specificPlan ? parseFloat(specificPlan.price || 0) : crmBase;
+                                let modYearly = (specificPlan && specificPlan.price_yearly) ? parseFloat(specificPlan.price_yearly) : Math.round(modBase * 12 * 0.8);
+                                let modLifetime = (specificPlan && specificPlan.price_lifetime) ? parseFloat(specificPlan.price_lifetime) : Math.round(modBase * 36);
+                                
+                                return `
+                                <div class="column" style="margin-bottom: 30px;">
+                                    <div class="neu-card">
+                                        <h4 class="card-title">${p.title}</h4>
+                                        <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 15px;">${p.subtitle || ''}</p>
+                                        ${p.description ? `<p style="font-size: 14px; color: var(--text-light); margin-bottom: 20px; line-height: 1.6;">${p.description}</p>` : ''}
+                                        <div class="neu-inner">
+                                            <ul class="feature-list" style="list-style: none; padding-left: 0;">
+                                                ${p.features.map(f => `<li style="padding: 5px 0;"><span style="color: #3b82f6; margin-right: 10px;">✓</span>${f}</li>`).join('')}
+                                            </ul>
+                                        </div>
+                                        ${pageId === 'crm' ? `
+                                        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                                            <a href="/customer.html?redirect=purchase&plan=${planIdToUse}&cycle=month" class="btn btn--stroke" style="text-align: center; font-size: 13px;">Buy Monthly (${modBase} OMR/mo)</a>
+                                            <a href="/customer.html?redirect=purchase&plan=${planIdToUse}&cycle=year" class="btn btn--stroke" style="text-align: center; font-size: 13px;">Buy Yearly (${modYearly} OMR/yr)</a>
+                                            <a href="/customer.html?redirect=purchase&plan=${planIdToUse}&cycle=lifetime" class="btn btn--stroke" style="text-align: center; font-size: 13px;">Buy Lifetime (${modLifetime} OMR)</a>
+                                        </div>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                </section>`;
+            }
+
+            // Platform Features
+            if (data.platformFeatures && data.platformFeatures.length > 0) {
+                html += `
+                <section class="row target-section" style="margin-bottom: 80px;">
+                    <div class="column lg-12">
+                        <div class="neu-inner" style="padding: 50px 30px; border-radius: 20px;">
+                            <h3 class="section-heading" style="margin-bottom: 40px;">Platform Features</h3>
+                            <div class="row block-lg-one-half block-tab-whole">
+                                ${data.platformFeatures.map(f => `
+                                    <div class="column" style="margin-bottom: 40px;">
+                                        <h4 style="color: var(--accent); font-size: 20px; margin-bottom: 10px;">${f.title}</h4>
+                                        <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 15px;">${f.subtitle || ''}</p>
+                                        ${f.tags ? `
+                                            <div class="neu-tag-cloud">
+                                                ${f.tags.map(t => `<span>${t}</span>`).join('')}
+                                            </div>
+                                        ` : `
+                                            <ul class="feature-list" style="list-style: none; padding-left: 0;">
+                                                ${f.features.map(feat => `<li style="padding: 5px 0;"><span style="color: #3b82f6; margin-right: 10px;">✓</span>${feat}</li>`).join('')}
+                                            </ul>
+                                        `}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </section>`;
+            }
+
+            // Business Advantages
+            if (data.businessAdvantages && data.businessAdvantages.length > 0) {
+                html += `
+                <section class="row target-section" style="margin-bottom: 80px;">
+                    <div class="column lg-12">
+                        <h3 class="section-heading">Business Advantages</h3>
+                        <div class="row block-lg-one-half block-tab-whole">
+                            ${data.businessAdvantages.map(a => `
+                                <div class="column" style="margin-bottom: 30px;">
+                                    <div class="neu-card">
+                                        <h4 class="card-title">${a.title}</h4>
+                                        <p style="font-size: 15px; color: var(--text-main); margin-bottom: 0;">${a.description}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>`;
+            }
+
+            // Table & Use Cases
+            if (data.useCases || data.keyBenefits) {
+                html += `
+                <section class="row target-section" style="margin-bottom: 80px;">
+                    <div class="column lg-12">
+                        ${data.useCases && data.useCases.length > 0 ? `
+                            <h3 class="section-heading" style="text-align: left; margin-bottom: 20px;">Ideal Business Types</h3>
+                            <div class="neu-tag-cloud" style="margin-bottom: 60px;">
+                                ${data.useCases.map(u => `<span>${u}</span>`).join('')}
+                            </div>
+                        ` : ''}
+
+                        ${data.keyBenefits && data.keyBenefits.length > 0 ? `
+                            <h3 class="section-heading" style="text-align: left; margin-bottom: 30px;">Key Benefits at a Glance</h3>
+                            <div class="neu-card" style="padding: 10px;">
+                                <div class="neu-inner" style="overflow-x: auto; padding: 0;">
+                                    <table class="neu-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 25%;">Category</th>
+                                                <th>Benefits</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${data.keyBenefits.map(b => `
+                                                <tr>
+                                                    <td><strong>${b.category}</strong></td>
+                                                    <td style="color: var(--text-muted);">${b.benefit}</td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </section>`;
+            }
+
+            document.getElementById('main-content').innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>

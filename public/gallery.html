@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="no-js ss-preload" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gallery | Sikandar, Muscat Oman</title>
+    <meta name="description"
+        content="Explore our collection of designs, launch ceremonies, and client onboarding milestones.">
+    <meta name="author" content="Sikandar Ali Trading">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="style.css?v=2.4">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media screen and (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-img-wrapper {
+            position: relative;
+            padding-top: 66.67%;
+            /* 3:2 Aspect Ratio */
+            overflow: hidden;
+            background: #141618;
+        }
+
+        .gallery-img-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .gallery-info {
+            padding: 24px;
+        }
+
+        .gallery-title {
+            font-family: var(--font-2);
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .gallery-desc {
+            font-size: 14px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- preloader -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <!-- page wrap -->
+    <div class="s-pagewrap">
+
+        <div class="circles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- site header -->
+        <header class="s-header">
+            <div class="header-mobile">
+                <span class="mobile-home-link"><a href="/">SIKANDAR.</a></span>
+                <a class="mobile-menu-toggle" href="#0"><span>Menu</span></a>
+            </div>
+
+            <div class="row wide main-nav-wrap">
+                <nav class="column lg-12 main-nav">
+                    <ul>
+                        <li><a href="/" class="home-link">SIKANDAR.</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/#products">Products</a></li>
+
+                        <li class="current"><a href="/gallery">Gallery</a></li>
+                        <li><a href="/customer.html">Customer Portal</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- main content -->
+        <main class="s-content" style="padding-top: 140px; padding-bottom: 80px;">
+
+            <!-- Header section -->
+            <section class="row target-section" style="margin-bottom: 60px;">
+                <div class="column lg-12">
+                    <div class="text-pretitle with-line" style="color: var(--color-1);">~/sikandar/gallery/showcase
+                    </div>
+                    <h1
+                        style="font-family: var(--font-2); font-size: 56px; margin-top: 10px; margin-bottom: 20px; color: #fff;">
+                        Product Showcase</h1>
+                    <p class="attention-getter"
+                        style="max-width: 800px; line-height: 1.8; color: var(--color-text-light);">
+                        Explore our cutting-edge, AI-driven software interfaces. From comprehensive ERP & CRM dashboards
+                        to intuitive Retail POS solutions, discover the future of enterprise management.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Gallery Grid Section -->
+            <section class="row target-section" style="margin-bottom: 80px;">
+                <div class="column lg-12">
+                    <div id="dynamic-gallery-feed" class="gallery-grid">
+                        <div style="color: #64748b; font-family: monospace; grid-column: 1 / -1; padding: 20px;">Loading
+                            dynamic gallery...</div>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', async () => {
+                            try {
+                                const response = await fetch('/api/content');
+                                if (!response.ok) throw new Error('Failed to fetch gallery content');
+                                const data = await response.json();
+                                const galleryFeed = data.gallery;
+                                const container = document.getElementById('dynamic-gallery-feed');
+
+                                if (galleryFeed && galleryFeed.length > 0) {
+                                    container.innerHTML = '';
+                                    galleryFeed.forEach(item => {
+                                        container.innerHTML += `
+                                                <div class="gallery-card">
+                                                    <div class="gallery-img-wrapper">
+                                                        <img src="${item.image}" alt="${item.title}">
+                                                    </div>
+                                                    <div class="gallery-info">
+                                                        <div class="gallery-title">${item.title}</div>
+                                                        <p class="gallery-desc">${item.description}</p>
+                                                    </div>
+                                                </div>
+                                            `;
+                                    });
+                                } else {
+                                    container.innerHTML = '<div style="color: #64748b; grid-column: 1 / -1;">No gallery items found.</div>';
+                                }
+                            } catch (err) {
+                                console.error('Error loading gallery:', err);
+                                document.getElementById('dynamic-gallery-feed').innerHTML = '<div style="color: #ef4444; grid-column: 1 / -1;">Failed to load gallery.</div>';
+                            }
+                        });
+                    </script>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- footer -->
+        <footer class="s-footer" style="border-top: 1px solid var(--color-border); padding-top: 40px;">
+            <div class="row">
+                <div class="column ss-copyright">
+                    <span>© Copyright Sikandar Ali Trading 2026</span>
+                    <span>Design by <a href="#">Sikandar Ali Trading SPC</a></span>
+                    <span>Muscat, Oman | <a href="/terms.html">Terms</a> | <a href="/privacy.html">Privacy</a> | <a href="/refund.html">Refund Policy</a></span>
+                </div>
+
+                <div class="ss-go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd"
+                            clip-rule="evenodd">
+                            <path
+                                d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"
+                                fill="currentColor" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Java Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moveTo/0.1.1/moveTo.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
