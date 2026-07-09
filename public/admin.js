@@ -470,15 +470,15 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
           <div class="admin-form-group">
             <label>Monthly Price</label>
-            <input type="number" id="edit-plan-price" class="admin-input" value="${plan.price || 0}" required>
+            <input type="number" step="0.001" id="edit-plan-price" class="admin-input" value="${plan.price || 0}" required>
           </div>
           <div class="admin-form-group">
             <label>Yearly Price (Opt)</label>
-            <input type="number" id="edit-plan-price-yearly" class="admin-input" value="${plan.price_yearly || ''}">
+            <input type="number" step="0.001" id="edit-plan-price-yearly" class="admin-input" value="${plan.price_yearly || ''}">
           </div>
           <div class="admin-form-group">
             <label>Lifetime Price (Opt)</label>
-            <input type="number" id="edit-plan-price-lifetime" class="admin-input" value="${plan.price_lifetime || ''}">
+            <input type="number" step="0.001" id="edit-plan-price-lifetime" class="admin-input" value="${plan.price_lifetime || ''}">
           </div>
         </div>
         </div>
