@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!response.ok) throw new Error('Unauthorized');
       const data = await response.json();
 
-      if (statRevenue) statRevenue.innerText = parseFloat(data.revenue).toFixed(2);
+      if (statRevenue) statRevenue.innerText = parseFloat(data.revenue).toFixed(3);
       if (statOrders) statOrders.innerText = data.successfulCount;
       if (statLeads) statLeads.innerText = data.leadsCount;
     } catch (err) {

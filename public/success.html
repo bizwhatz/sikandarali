@@ -351,9 +351,9 @@
                 const dateObj = new Date(payment.created_at);
                 document.getElementById('rec-date').textContent = dateObj.toLocaleString('en-US', { hour12: false });
 
-                document.getElementById('rec-subtotal').textContent = subtotal.toFixed(2) + ' OMR';
-                document.getElementById('rec-vat').textContent = vat.toFixed(2) + ' OMR';
-                document.getElementById('rec-total').textContent = total.toFixed(2) + ' OMR';
+                document.getElementById('rec-subtotal').textContent = subtotal.toFixed(3) + ' OMR';
+                document.getElementById('rec-vat').textContent = vat.toFixed(3) + ' OMR';
+                document.getElementById('rec-total').textContent = total.toFixed(3) + ' OMR';
 
                 // Swap Loader and Receipt
                 document.getElementById('receipt-loader').style.display = 'none';

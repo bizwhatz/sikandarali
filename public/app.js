@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${productIcons[plan.id] || ''}
         </div>
         <div class="pricing-plan-name">${plan.name}</div>
-        <div class="pricing-price">${plan.price.toFixed(2)} <span>OMR / ${plan.billing}</span></div>
+        <div class="pricing-price">${plan.price.toFixed(3)} <span>OMR / ${plan.billing}</span></div>
         ${getPlanStatusHtml(plan.id)}
         <p class="pricing-desc">${plan.description}</p>
         <ul class="pricing-features">
@@ -305,12 +305,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update receipt summary fields
     document.getElementById('summary-plan-name').textContent = plan.name + ' License';
     document.getElementById('summary-plan-desc').textContent = plan.description;
-    document.getElementById('summary-plan-price').textContent = basePrice.toFixed(2) + ' OMR';
+    document.getElementById('summary-plan-price').textContent = basePrice.toFixed(3) + ' OMR';
     // Update the contract term in the DOM (assuming it's the element before the VAT row)
     const termElement = document.getElementById('summary-vat').parentElement.previousElementSibling.children[1];
     if (termElement) termElement.textContent = contractTerm;
-    document.getElementById('summary-vat').textContent = vat.toFixed(2) + ' OMR';
-    document.getElementById('summary-total').textContent = total.toFixed(2) + ' OMR';
+    document.getElementById('summary-vat').textContent = vat.toFixed(3) + ' OMR';
+    document.getElementById('summary-total').textContent = total.toFixed(3) + ' OMR';
   }
 
   // 5. Submit Checkout form and redirect

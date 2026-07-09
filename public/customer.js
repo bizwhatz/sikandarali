@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <h4 style="font-family: var(--font-2); font-size: 22px; color: #fff; margin-top: 0; margin-bottom: 10px;">${product.name}</h4>
             <div id="price-${product.id}" style="font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 15px;">
-              ${parseFloat(product.price).toFixed(2)} OMR
+              ${parseFloat(product.price).toFixed(3)} OMR
               ${product.billing ? `<span style="font-size: 13px; font-weight: normal; color: var(--color-text-light);">/ ${product.billing}</span>` : ''}
             </div>
             <p id="desc-${product.id}" style="color: var(--color-text-light); font-size: 14px; line-height: 1.5; margin-bottom: 20px;">${product.description || ''}</p>
@@ -265,9 +265,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentCycle = cycleSelect.value || 'month';
         
         cycleSelect.innerHTML = `
-          <option value="month" style="background: #1a1a1a; color: #fff;" ${currentCycle === 'month' ? 'selected' : ''}>Monthly (${(p * 1.05).toFixed(2)} OMR inc VAT)</option>
-          <option value="year" style="background: #1a1a1a; color: #fff;" ${currentCycle === 'year' ? 'selected' : ''}>Yearly (${(py * 1.05).toFixed(2)} OMR inc VAT)</option>
-          <option value="lifetime" style="background: #1a1a1a; color: #fff;" ${currentCycle === 'lifetime' ? 'selected' : ''}>Lifetime (${(pl * 1.05).toFixed(2)} OMR inc VAT)</option>
+          <option value="month" style="background: #1a1a1a; color: #fff;" ${currentCycle === 'month' ? 'selected' : ''}>Monthly (${(p * 1.05).toFixed(3)} OMR inc VAT)</option>
+          <option value="year" style="background: #1a1a1a; color: #fff;" ${currentCycle === 'year' ? 'selected' : ''}>Yearly (${(py * 1.05).toFixed(3)} OMR inc VAT)</option>
+          <option value="lifetime" style="background: #1a1a1a; color: #fff;" ${currentCycle === 'lifetime' ? 'selected' : ''}>Lifetime (${(pl * 1.05).toFixed(3)} OMR inc VAT)</option>
         `;
 
         // Update card price dynamically based on selected billing cycle
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
             billingLabel = 'lifetime';
           }
           priceEl.innerHTML = `
-            ${displayedPrice.toFixed(2)} OMR
+            ${displayedPrice.toFixed(3)} OMR
             <span style="font-size: 13px; font-weight: normal; color: var(--color-text-light);">/ ${billingLabel}</span>
           `;
         }
@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div style="min-width: 150px;">
               <span style="font-size: 11px; text-transform: uppercase; color: var(--primary-cyan); font-weight: 600; display: block; margin-bottom: 2px;">${item.type || 'Software'}</span>
               <h5 style="color: #fff; font-family: var(--font-2); font-size: 16px; margin: 0;">${item.name}</h5>
-              <span style="font-size: 13px; color: var(--color-text-light);">${parseFloat(item.price).toFixed(2)} OMR</span>
+              <span style="font-size: 13px; color: var(--color-text-light);">${parseFloat(item.price).toFixed(3)} OMR</span>
             </div>
             
             <div style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.2); padding: 5px 12px; border-radius: 20px;">
@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div style="text-align: right; min-width: 80px;">
-              <span style="color: #fff; font-weight: 700; font-family: var(--font-mono); font-size: 16px;">${(item.price * item.quantity).toFixed(2)} OMR</span>
+              <span style="color: #fff; font-weight: 700; font-family: var(--font-mono); font-size: 16px;">${(item.price * item.quantity).toFixed(3)} OMR</span>
             </div>
 
             <div>
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const vat = subtotal * 0.05;
     const total = subtotal + vat;
     
-    if (cartTotal) cartTotal.innerHTML = `<span style="font-size: 14px; color: var(--color-text-light); font-weight: normal; margin-right: 10px;">Subtotal: ${subtotal.toFixed(2)} | + 5% VAT: ${vat.toFixed(2)}</span><br>${total.toFixed(2)} OMR`;
+    if (cartTotal) cartTotal.innerHTML = `<span style="font-size: 14px; color: var(--color-text-light); font-weight: normal; margin-right: 10px;">Subtotal: ${subtotal.toFixed(3)} | + 5% VAT: ${vat.toFixed(3)}</span><br>${total.toFixed(3)} OMR`;
     if (cartSummary) cartSummary.style.display = 'block';
   }
 
@@ -581,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tr.innerHTML = `
         <td style="font-family: var(--font-mono); font-size: 13px;">${p.id}</td>
         <td style="font-weight: 600; color: #fff;">${p.plan_name}</td>
-        <td>${parseFloat(p.amount_omr).toFixed(2)} OMR</td>
+        <td>${parseFloat(p.amount_omr).toFixed(3)} OMR</td>
         <td><span class="status-badge ${p.status.toLowerCase()}">${p.status}</span></td>
         <td>${dateStr}</td>
         <td>

@@ -636,7 +636,7 @@ async function init() {
         customer_phone VARCHAR(50),
         plan_id VARCHAR(50) NOT NULL,
         plan_name VARCHAR(100) NOT NULL,
-        amount_omr DECIMAL(10,2) NOT NULL,
+        amount_omr DECIMAL(10,3) NOT NULL,
         status VARCHAR(50) DEFAULT 'PENDING',
         created_at DATETIME NOT NULL
       ) ENGINE=InnoDB;

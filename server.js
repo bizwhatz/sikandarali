@@ -420,7 +420,7 @@ const server = http.createServer(async (req, res) => {
         }
         
         // Include 5% VAT
-        amount = parseFloat((amount * 1.05).toFixed(2));
+        amount = parseFloat((amount * 1.05).toFixed(3));
       }
 
       const chargeId = `chg_${isSimulationMode ? 'sim_' : ''}${crypto.randomBytes(12).toString('hex')}`;
