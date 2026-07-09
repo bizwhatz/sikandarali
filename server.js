@@ -7,7 +7,6 @@ const crypto = require('crypto');
 const db = require('./db');
 
 // 1. Load Environment Variables from .env manually (zero-dependency)
-const env = {};
 const envPath = path.join(__dirname, '.env');
 if (fs.existsSync(envPath)) {
   const envContent = fs.readFileSync(envPath, 'utf-8');
@@ -18,16 +17,18 @@ if (fs.existsSync(envPath)) {
     if (eqIdx > 0) {
       const key = trimmed.substring(0, eqIdx).trim();
       const val = trimmed.substring(eqIdx + 1).trim();
-      env[key] = val;
-      process.env[key] = val; // set to environment
+      // Set to process.env only if not already set (standard .env behavior)
+      if (process.env[key] === undefined) {
+        process.env[key] = val;
+      }
     }
   });
 }
 
-const PORT = env.PORT || 3000;
-const BASE_URL = env.BASE_URL || `http://localhost:${PORT}`;
-const TAP_SECRET_KEY = env.TAP_SECRET_KEY || 'sk_test_placeholder_key';
-const JWT_SECRET = env.JWT_SECRET || 'super_secret_session_key_for_sikandar_crm';
+const PORT = process.env.PORT || 3000;
+const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+const TAP_SECRET_KEY = process.env.TAP_SECRET_KEY || 'sk_test_placeholder_key';
+const JWT_SECRET = process.env.JWT_SECRET || 'super_secret_session_key_for_sikandar_crm';
 
 // Check if running in simulation mode
 const isSimulationMode =
